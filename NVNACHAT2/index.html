@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход / Регистрация</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2 id="form-title">Вход</h2>
+        <form id="auth-form">
+            <div class="form-group">
+                <label for="email">Имейл</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error" id="email-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="username">Потребителско име</label>
+                <input type="text" id="username" name="username" required>
+                <span class="error" id="username-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Парола</label>
+                <input type="password" id="password" name="password" required>
+                <span class="error" id="password-error"></span>
+            </div>
+            <button type="submit" id="submit-btn">Вход</button>
+        </form>
+        <p id="toggle-text">Нямате акаунт? <a href="#" id="toggle-link">Регистрация</a></p>
+        <span class="error" id="form-error"></span>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

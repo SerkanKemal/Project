@@ -1,0 +1,221 @@
+/* Основен фон и центриране */
+body {
+    background: #181c24;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Централен контейнер за login/чат */
+.login-container, .chat-container {
+    background: #23283a;
+    padding: 2.5rem 2rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+    min-width: 320px;
+    max-width: 400px;
+    width: 100%;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Заглавие */
+#form-title, .chat-title {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Формови групи */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    color: #b0b8c1;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 10px;
+    background: #23283a;
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background 0.2s;
+}
+
+input:focus {
+    background: #2e344d;
+}
+
+button, #send-btn {
+    background: linear-gradient(90deg, #3a7bd5 0%, #00d2ff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+button:hover, #send-btn:hover {
+    background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: 0.95rem;
+    margin-top: 0.2rem;
+    display: block;
+    min-height: 1.2em;
+}
+
+/* Превключване между login и регистрация */
+#toggle-text {
+    color: #b0b8c1;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+#toggle-link {
+    color: #00d2ff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Чат интерфейс */
+.chat-container {
+    max-width: 520px;
+    min-width: 320px;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.messages {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    background: #1a1f2b;
+    border-radius: 12px;
+    padding: 1.2rem 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    min-height: 200px;
+    max-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+/* Съобщение */
+.message {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0.2rem;
+    word-break: break-word;
+}
+
+.message .username {
+    font-weight: 600;
+    color: #00d2ff;
+    font-size: 1rem;
+    margin-bottom: 0.1rem;
+}
+
+.message .text {
+    color: #fff;
+    background: #23283a;
+    border-radius: 8px;
+    padding: 0.5rem 0.9rem;
+    font-size: 1.05rem;
+    margin-left: 0.2rem;
+    margin-bottom: 0.1rem;
+    max-width: 90vw;
+}
+
+.message.self .username {
+    color: #3a7bd5;
+}
+
+.message.self .text {
+    background: #2e344d;
+    color: #b0eaff;
+    align-self: flex-end;
+}
+
+/* Форма за съобщения */
+#message-form {
+    display: flex;
+    gap: 0.7rem;
+}
+
+#message-input {
+    flex: 1 1 auto;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    border: none;
+    background: #23283a;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background 0.2s;
+}
+
+#message-input:focus {
+    background: #2e344d;
+}
+
+#send-btn {
+    flex: 0 0 auto;
+    padding: 0.7rem 1.2rem;
+}
+
+/* Responsive дизайн */
+@media (max-width: 600px) {
+    .login-container, .chat-container {
+        min-width: 95vw;
+        max-width: 98vw;
+        padding: 1.2rem 0.5rem;
+        margin: 0.5rem;
+    }
+    .messages {
+        padding: 0.7rem 0.3rem;
+        max-height: 45vh;
+    }
+    #message-input {
+        font-size: 0.98rem;
+        padding: 0.6rem 0.7rem;
+    }
+    button, #send-btn {
+        font-size: 0.98rem;
+        padding: 0.6rem 1rem;
+    }
+}

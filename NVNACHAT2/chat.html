@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>NVNA CHAT ROOM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div id="messages" class="messages"></div>
+        <form id="message-form" autocomplete="off">
+            <input type="text" id="message-input" placeholder="Въведете съобщение..." required autocomplete="off">
+            <button type="submit" id="send-btn">Изпрати</button>
+        </form>
+    </div>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>
