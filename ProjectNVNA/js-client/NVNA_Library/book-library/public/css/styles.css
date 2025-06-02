@@ -1,0 +1,240 @@
+body {
+    background: #f5f7fa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1, h2 {
+    text-align: center;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 32px 24px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    animation: fadeIn 1s;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border 0.2s;
+}
+
+form textarea {
+    min-width: 100%;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+    border: 1.5px solid #667eea;
+    outline: none;
+}
+
+button {
+    padding: 10px 0;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #667eea 0%, #5a67d8 100%);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #5a67d8 0%, #667eea 100%);
+}
+
+form button[type="submit"],
+button[type="button"] {
+    width: 100%;
+    padding: 10px 0;
+    background: linear-gradient(90deg, #667eea 0%, #5a67d8 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: background 0.2s;
+}
+
+form button[type="submit"]:hover,
+button[type="button"]:hover {
+    background: linear-gradient(90deg, #5a67d8 0%, #667eea 100%);
+}
+
+#bookList {
+    margin-top: 24px;
+}
+
+#books {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#books li {
+    background: #f8fafc;
+    margin-bottom: 18px;
+    padding: 18px 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(102, 126, 234, 0.08);
+    transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    animation: slideIn 0.5s;
+}
+
+#books li:hover {
+    transform: scale(1.03) translateY(-2px);
+    box-shadow: 0 6px 24px rgba(102, 126, 234, 0.18);
+    background: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+
+/* Animate the "We don't have that book." message */
+#books li[no-book] {
+    background: none;
+    color: #b71c1c;
+    text-align: center;
+    font-size: 1.1em;
+    animation: fadeIn 0.8s;
+    box-shadow: none;
+    margin-top: 20px;
+}
+
+#books li em {
+    color: #555;
+    font-size: 0.98em;
+    margin-top: 6px;
+}
+
+canvas {
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.10);
+    border-radius: 8px;
+    transition: box-shadow 0.3s;
+    animation: fadeIn 0.7s;
+}
+
+canvas:hover {
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.22);
+}
+
+/* Add a subtle hover effect to the container */
+.container:hover {
+    box-shadow: 0 12px 36px rgba(31, 38, 135, 0.25);
+    transition: box-shadow 0.4s;
+}
+
+/* Add a floating effect to the Add Book button */
+form button[type="submit"] {
+    transition: transform 0.2s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+}
+form button[type="submit"]:hover {
+    transform: translateY(-3px) scale(1.07);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.25);
+}
+
+#messageBox {
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    background: linear-gradient(to right, #f7971e, #ffd200);
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    min-height: 24px;
+    box-shadow: 0 2px 8px rgba(247, 151, 30, 0.08);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#messageBox.show {
+    opacity: 1;
+}
+
+/* Custom style for the genre dropdown */
+#genreFilter {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.08);
+    transition: box-shadow 0.3s, background 0.3s;
+    outline: none;
+    margin-left: 8px;
+    margin-right: 8px;
+    color: #333;
+    cursor: pointer;
+}
+
+#genreFilter:focus {
+    box-shadow: 0 0 0 2px #667eea;
+    background: linear-gradient(to right, #e0e7ff, #c3cfe2);
+}
+
+#genreFilter option {
+    background: #fff;
+    color: #333;
+    font-size: 1rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-40px);}
+    to { opacity: 1; transform: translateX(0);}
+}
+
+@media (max-width: 600px) {
+    form {
+        flex-direction: column;
+    }
+
+    input[type="text"], input[type="submit"] {
+        width: 100%;
+    }
+}

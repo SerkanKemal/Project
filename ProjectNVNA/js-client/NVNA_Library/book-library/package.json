@@ -1,0 +1,27 @@
+{
+  "name": "book-library",
+  "version": "1.0.0",
+  "description": "A web-based application for managing a book library with search and add functionality.",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js",
+    "fullstack": "concurrently \"nodemon server/app.js\" \"python python-ocr-api/ocr_api.py\""
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-session": "^1.18.1",
+    "mysql2": "^2.2.5",
+    "nodemailer": "^7.0.3",
+    "sequelize": "^6.6.5",
+    "tesseract.js": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "concurrently": "^8.0.1"
+  },
+  "author": "Your Name",
+  "license": "ISC"
+}
