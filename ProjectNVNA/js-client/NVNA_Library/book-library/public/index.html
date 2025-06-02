@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+    <!-- Link to the main stylesheet for styling the app -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="addBookForm" style="display:none;">
+            <input type="text" id="title" placeholder="Book Title" required>
+            <!-- <button type="button" id="autofillBtn">Autofill</button> -->
+            <input type="text" id="author" placeholder="Author" required>
+            <input type="text" id="genre" placeholder="Genre" required>
+            <textarea id="summary" placeholder="Summary" rows="5" required></textarea>
+            <input type="hidden" id="coverId">
+            <input type="file" id="coverPhotoInput" accept="image/*" capture="environment">
+            <button type="button" id="photoAutofillBtn">Autofill from Photo</button>
+            <button type="submit">Add Book</button>
+        </form>
+        <div id="addBookFormMessage" style="display:none; color: #c00; margin-bottom: 1em;">
+            Only librarians or admins can add books.
+        </div>
+        <!-- Search input and button for finding books by title or author -->
+        <input type="text" id="search" placeholder="Search by title or author">
+        <select id="genreFilter">
+            <option value="">All Genres</option>
+            <!-- Options will be filled dynamically -->
+        </select>
+        <button id="searchButton">Search</button>
+        <button onclick="logout()">Logout</button>
+        <!-- Book list section -->
+        <div id="bookList">
+            <h2>Book List</h2>
+            <!-- Books will be rendered here as <li> elements -->
+            <ul id="books"></ul>
+        </div>
+        <!-- Message box for showing success/error messages -->
+        <div id="messageBox"></div>
+    </div>
+    <!-- Main JavaScript file for app logic -->
+    <script src="js/main.js"></script>
+    <!-- QRious library for generating QR codes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script>
+if (localStorage.getItem('loggedIn') !== 'true') {
+    window.location.href = 'login.html';
+}
+function logout() {
+    localStorage.removeItem('loggedIn');
+    window.location.href = 'login.html';
+}
+</script>
+</body>
+</html>
